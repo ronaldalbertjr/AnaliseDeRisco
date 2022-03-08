@@ -11,9 +11,11 @@
 # Objetivo: 
 # -----------------------------------------------------------------------------------#
 
-library(quantmod)   # Importando a biblioteca de modelagem financeira quantitativa 'quantmod'
-getSymbols("WEGE3.SA", src = "yahoo", from = as.Date("2007-05-01"))     # Salva no ambiente os dados históricos de preço da ação WEGE3 do período de 01/05/2007 até a data atual
-price_history <- as.numeric(WEGE3.SA$WEGE3.SA.Close)    # Conversão dos valores obtidos no passo anterior de fatores para numéricos, armazenando no data frame (ou array?) 'price_history'
+library(quantmod)                                                       # Importando a biblioteca de modelagem financeira quantitativa 'quantmod'
+getSymbols("WEGE3.SA", src = "yahoo", from = as.Date("2007-05-01"))     # Salva no ambiente os dados históricos de preço da ação WEGE3 
+                                                                        # do período de 01/05/2007 até a data atual
+price_history <- as.numeric(WEGE3.SA$WEGE3.SA.Close)                    # Conversão dos valores obtidos no passo anterior de fatores para numéricos, 
+                                                                        # armazenando no data frame (ou array?) 'price_history'
 log_return_price_history <- diff(log(price_history))[2:length(price_history) - 1]  
 
 u <- mean(log_return_price_history)
