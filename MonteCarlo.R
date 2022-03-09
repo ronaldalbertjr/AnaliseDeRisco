@@ -24,7 +24,7 @@ drift <- u - (0.5 * var)
 std <- sqrt(var)
 
 t_intervals <- 1000
-iterations <- 10
+iterations <- 100
 
 random <- matrix(qnorm(runif(iterations*t_intervals)), nrow=t_intervals)
 daily_returns <- exp(drift + std * random)
@@ -42,3 +42,4 @@ plot(1:t_intervals, df[,1], type = 'l', col=1)
 for (i in 2:iterations) {
   lines(1:t_intervals, df[,i], type = 'l', col=i)
 }
+ 

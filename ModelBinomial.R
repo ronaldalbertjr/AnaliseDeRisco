@@ -15,7 +15,7 @@ getSymbols("GOOGL", src = "yahoo", from = as.Date("2020-05-01"))                
 price_history <- as.numeric(GOOGL$GOOGL.Close)                                          # Conversão dos valores obtidos no passo anterior de fatores para numéricos,
                                                                                         # armazenando no data frame (ou array?) 'price_history'
 log_return_price_history <- diff(log(price_history))[2:length(price_history) - 1]
-sigma <- sd(log_return_price_history)/sqrt(length(price_history))
+sigma <- sd(log_return_price_history)
 
 
 build_stock_tree <- function(S, sigma, delta_t, N) {
